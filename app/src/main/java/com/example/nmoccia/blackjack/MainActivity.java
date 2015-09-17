@@ -7,10 +7,17 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
+    Deck deck;
+    boolean continuePlaying;
+    boolean dealerWins = false;
+    boolean playerWins = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        newGame();
     }
 
     @Override
@@ -33,5 +40,43 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void newGame(){
+        deck = new Deck();
+        deck.shuffle();
+
+        playGame();
+    }
+
+    public void playGame(){
+        continuePlaying = true;
+        while (continuePlaying){
+            dealerWins = false;
+            playerWins = false;
+            initialDeal();
+            playerTurn();
+            if (dealerWins)
+                displayWinner();
+            else
+                dealerTurn();
+            displayWinner();
+        }
+    }
+
+    public void initialDeal(){
+
+    }
+
+    public void playerTurn(){
+
+    }
+
+    public void dealerTurn(){
+
+    }
+
+    public void displayWinner(){
+
     }
 }
