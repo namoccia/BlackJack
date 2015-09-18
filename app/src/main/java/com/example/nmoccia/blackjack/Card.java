@@ -20,6 +20,11 @@ public class Card {
         cardIndex = card;
     }
 
+    @Override
+    public String toString(){
+        return String.format("%s of %s \n", getCard(),getSuit());
+    }
+
     public int getSuitIndex() { return suitIndex;}
     public int getCardIndex() { return cardIndex;}
     public String getSuit() { return suit[suitIndex];}

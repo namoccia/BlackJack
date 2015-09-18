@@ -185,14 +185,22 @@ public class MainActivity extends AppCompatActivity {
         TextView dealerView = (TextView)findViewById(R.id.dealerCardsTextView);
         TextView playerView = (TextView)findViewById(R.id.playerCardsTextView);
 
-        String dealerHandOutput = String.format("Card total: %d\n", dealer.getCardSum());
+        String dealerHandOutput;
+
+        if (playerTurnOver)
+            dealerHandOutput = String.format("Card total: %d\n", dealer.getCardSum());
+        else
+            dealerHandOutput = "Card total: Unknown\n";
         for (int i = 0; i < dealerHand.size(); i++) {
-            dealerHandOutput += String.format("%s of %s \n", dealerHand.get(i).getCard(), dealerHand.get(i).getSuit());
+            if (!playerTurnOver && i==0)
+                dealerHandOutput += "**************\n";
+            else
+                dealerHandOutput += dealerHand.get(i).toString();
         }
 
         String playerHandOutput = String.format("Card total: %d\n", player.getCardSum());
         for (int i = 0; i < playerHand.size(); i++) {
-            playerHandOutput += String.format("%s of %s \n", playerHand.get(i).getCard(), playerHand.get(i).getSuit());
+            playerHandOutput += playerHand.get(i).toString();
         }
 
         if (playerWins) {
