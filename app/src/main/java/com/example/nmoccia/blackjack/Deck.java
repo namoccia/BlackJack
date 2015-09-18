@@ -28,12 +28,13 @@ public class Deck {
     }
 
     public Card deal() {
-        if (nextCard < cards.length) {
-            nextCard++;
-            return cards[nextCard-1];
-        }
-        else {
-            return null;
-        }
+        if (nextCard < cards.length)
+            shuffle();
+        nextCard++;
+        return cards[nextCard-1];
+    }
+
+    public int getNextCard() {
+        return nextCard;
     }
 }

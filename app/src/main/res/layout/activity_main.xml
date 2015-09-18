@@ -15,7 +15,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:clickable="true"
-        android:enabled="true" />
+        android:enabled="true"
+        android:onClick="hitMeButton"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -28,7 +29,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/hit"
         android:clickable="true"
-        android:enabled="true" />
+        android:enabled="true"
+        android:onClick="stayButton"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -75,5 +77,16 @@
         android:layout_above="@+id/playerTextView"
         android:layout_alignRight="@+id/playerCardsTextView"
         android:layout_alignEnd="@+id/playerCardsTextView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_hand"
+        android:id="@+id/newHand"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:visibility="gone"
+        android:onClick="newHandButton"/>
 
 </RelativeLayout>
